@@ -10,4 +10,4 @@ def client():
 
 def test_response(client):
     response = client.get('/')
-    assert response.data == "<p>Hello, World!</p>"
+    assert response.data == b"<p>Hello, World!</p>"
