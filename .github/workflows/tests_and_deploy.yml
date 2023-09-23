@@ -3,8 +3,8 @@
 name: CI
 
 env:
-  TEST_TAG: ${{ DOCKERHUB_LOGIN }}/flask-server:test
-  LATEST_TAG: ${{ DOCKERHUB_LOGIN }}/flask-server:latest
+  TEST_TAG: ${{ secrets.DOCKERHUB_LOGIN }}/flask-server:test
+  LATEST_TAG: ${{ secrets.DOCKERHUB_LOGIN }}/flask-server:latest
 
 # Controls when the workflow will run
 on:
