@@ -2,6 +2,10 @@
 
 name: CI
 
+env:
+  TEST_TAG: user/app:test
+  LATEST_TAG: user/app:latest
+
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -55,17 +59,17 @@ jobs:
         with:
           context: .
           load: true
-          tags: ${{ github.sha }}
+          tags: ${{ env.TEST_TAG }}
       - name: Test
         run: |
-          docker run --rm ${{ github.sha }}          
+          docker run -d --rm ${{ env.TEST_TAG }}           
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ github.sha }}
+          tags: ${{ env.LATEST_TAG }} }
     
 
   
