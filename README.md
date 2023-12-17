@@ -84,7 +84,11 @@ jobs:
           tags: ${{ env.LATEST_TAG }} 
 ```
 
+
+
 Разберем этот файл. Он состоит из двух jobs: "python_test" и "docker_test". 
+
+
 
 В первом job "python_test" выполняются следующие шаги:
 
@@ -96,6 +100,8 @@ jobs:
  3. Install Dependencies - установка зависимостей, указанных в файле requirements.txt.
 
  4. Run Tests - запуск тестов, выполняется команда make test в папке "app".
+
+
 
 Во втором job "docker_test" выполняются следующие шаги:
 
