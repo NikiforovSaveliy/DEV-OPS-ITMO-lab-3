@@ -121,8 +121,22 @@ jobs:
 ---
 
 <h2 align="center">Проверка</h2>
+Переходим в Actions и видим, что добавился новый workflow "CI". Запускаем его и видим следующее:
 
+<p align="center">
+  <img src="https://github.com/NikiforovSaveliy/DEV-OPS-ITMO-lab-3/blob/main/images/CI_procces.png"/>
+</p>
+
+Как и предпологалось все запустилось без ошибок. Проверяем, что образ создался и пушнулся в Docker Hub:
+
+<p align="center">
+  <img src="https://github.com/NikiforovSaveliy/DEV-OPS-ITMO-lab-3/blob/main/images/example.jpg"/>
+</p>
+
+Ура, все сработало!
 
 ---
 
 <h2 align="center">Вывод</h2>
+
+С помощью github actions мы смогли настроить автоматическую сборку и выгрузку docker образа на docker hub.
