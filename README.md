@@ -9,7 +9,8 @@
 Будем собирать образ, который будет выполнять развертку простого flask приложения, которое выводит "Hello, world!".
 Секреты были реализованы при помощи GitHub secrets.
 Реализация workflow представлена ниже:
-```
+
+`
 # This is a basic workflow to help you get started with Actions
 
 name: CI
@@ -81,7 +82,7 @@ jobs:
           context: .
           push: true
           tags: ${{ env.LATEST_TAG }} 
-```
+`
   
 
 
