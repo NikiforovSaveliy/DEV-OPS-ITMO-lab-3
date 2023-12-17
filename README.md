@@ -83,6 +83,23 @@ jobs:
           push: true
           tags: ${{ env.LATEST_TAG }} 
 ```
+
+Разберем этот файл. Он состоит из двух jobs: "python_test" и "docker_test". 
+
+В первом job "python_test" выполняются следующие шаги:
+    1. Checkout - получение репозитория с кодом.
+    2. Set up python - установка версии Python.
+    3. Install Dependencies - установка зависимостей, указанных в файле requirements.txt.
+    4. Run Tests - запуск тестов, выполняется команда make test в папке "app".
+
+Во втором job "docker_test" выполняются следующие шаги:
+
+    1. Checkout - получение репозитория с кодом.
+    2. TestBuild - настройка Docker Buildx.
+    3. Login to Docker Hub - авторизация в Docker Hub с использованием учетных данных из секретов.
+    4. Build and export to Docker - сборка и экспорт Docker-образа с тегом из переменной окружения "TEST_TAG".
+    5. Test - запуск Docker-контейнера на базе собранного образа.
+    6. Build and push - сборка и публикация Docker-образа с тегом из переменной окружения "LATEST_TAG".
   
 
 
