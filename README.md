@@ -11,33 +11,23 @@
 Реализация workflow представлена ниже:
 
 ```
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
 env:
   TEST_TAG: ${{ secrets.DOCKERHUB_LOGIN }}/flask-server:test
   LATEST_TAG: ${{ secrets.DOCKERHUB_LOGIN }}/flask-server:latest
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   python_test:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: CheckOut
         uses: actions/checkout@v3
       - name: Set up python
@@ -83,7 +73,6 @@ jobs:
           push: true
           tags: ${{ env.LATEST_TAG }} 
 ```
-
 
 
 Разберем этот файл. Он состоит из двух jobs: "python_test" и "docker_test". 
